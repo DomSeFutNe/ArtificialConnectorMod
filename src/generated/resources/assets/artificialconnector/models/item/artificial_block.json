@@ -1,6 +1,3 @@
 {
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "artificialconnector:item/artificial_block"
-  }
+  "parent": "artificialconnector:block/artificial_block"
 }

@@ -1,22 +1,20 @@
 package hackmnin.artificialconnector;
 
+import com.mojang.serialization.MapCodec;
+import hackmnin.artificialconnector.data.DataGenerators;
+// import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.core.registries.Registries;
-import net.neoforged.neoforge.registries.NeoForgeRegistries;
-import net.neoforged.neoforge.registries.DeferredRegister;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.common.world.BiomeModifier;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
-
+import net.neoforged.neoforge.registries.DeferredRegister;
+import net.neoforged.neoforge.registries.NeoForgeRegistries;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import hackmnin.artificialconnector.data.DataGenerators;
-import com.mojang.serialization.MapCodec;
 
 @Mod("artificialconnector")
 public class ArtificialConnectorMod {
@@ -26,20 +24,20 @@ public class ArtificialConnectorMod {
     /**
      * Deferred Register for Configured Features (the "What").
      */
-    public static final DeferredRegister<ConfiguredFeature<?, ?>> CONFIGURED_FEATURES =
-            DeferredRegister.create(Registries.CONFIGURED_FEATURE, MODID);
+    public static final DeferredRegister<ConfiguredFeature<?, ?>> CONFIGURED_FEATURES = DeferredRegister
+            .create(Registries.CONFIGURED_FEATURE, MODID);
 
     /**
      * Deferred Register for Placed Features (the "Where").
      */
-    public static final DeferredRegister<PlacedFeature> PLACED_FEATURES =
-            DeferredRegister.create(Registries.PLACED_FEATURE, MODID);
+    public static final DeferredRegister<PlacedFeature> PLACED_FEATURES = DeferredRegister
+            .create(Registries.PLACED_FEATURE, MODID);
 
     /**
      * Deferred Register for Biome Modifiers (the "In Which Biomes").
      */
-    public static final DeferredRegister<MapCodec<? extends BiomeModifier>> BIOME_MODIFIERS =
-            DeferredRegister.create(NeoForgeRegistries.BIOME_MODIFIER_SERIALIZERS, MODID);
+    public static final DeferredRegister<MapCodec<? extends BiomeModifier>> BIOME_MODIFIERS = DeferredRegister
+            .create(NeoForgeRegistries.BIOME_MODIFIER_SERIALIZERS, MODID);
 
     public ArtificialConnectorMod(IEventBus modEventBus) {
         Lo.info("Registetring Artificial Connector Mod...");
@@ -80,7 +78,6 @@ public class ArtificialConnectorMod {
             event.accept(ModItems.ARTIFICIAL_INGOT.get());
             Lo.debug("Adding Artificial Nugget to Ingredients tab.");
             event.accept(ModItems.ARTIFICIAL_NUGGET.get());
-
 
             // Add Block to Building Blocks tab
             Lo.debug("Adding Artificial Block to Building Blocks tab.");

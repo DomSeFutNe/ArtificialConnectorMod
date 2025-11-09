@@ -1,0 +1,19 @@
+echo "Running Gradle check (including Checkstyle)..."
+
+# Run the gradle 'check' task.
+# We pipe stdout to /dev/null to hide the massive output,
+# unless 'check' fails.
+OUTPUT=
+
+if [ 0 -ne 0 ]; then
+    echo "\n[POLICY] Pre-commit check failed!" >&2
+    echo "Please fix the Java code style (Checkstyle) errors below:" >&2
+    echo "-------------------------------------------------------" >&2
+    echo "" >&2
+    echo "-------------------------------------------------------" >&2
+    echo "Commit REJECTED.\n" >&2
+    exit 1
+fi
+
+echo "Code style OK. Proceeding with commit..."
+exit 0

@@ -28,7 +28,6 @@ public class ModItems {
         public static final DeferredHolder<Item, Item> RAW_ARTIFICIAL_ORE =
                         ITEMS.register("raw_artificial_ore",
                                         () -> new Item(new Item.Properties().rarity(Rarity.RARE)));
-
         /**
          * The registration for "Artificial Ingot".
          */

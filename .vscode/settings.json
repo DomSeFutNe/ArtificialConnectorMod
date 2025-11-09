@@ -1,0 +1,16 @@
+{
+    "svn.ignoreMissingSvnWarning": true,
+    "java.compile.nullAnalysis.mode": "automatic",
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "java.compile.nullAnalysis.nonnull": [],
+    "java.compile.nullAnalysis.nullable": [],
+    "java.checkstyle.version": "10.17.0",
+    "java.checkstyle.configuration": "${workspaceFolder}/config/checkstyle/google_checks.xml",
+    "java.checkstyle.enabled": true,
+    "java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
+    "java.format.settings.profile": "GoogleStyle",
+    "[java]": {
+        "editor.formatOnSave": true
+    },
+    "editor.formatOnSave": true
+}

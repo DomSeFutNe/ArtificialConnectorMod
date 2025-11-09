@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.7,
+  "ingredient": {
+    "item": "artificialconnector:raw_artificial_ore"
+  },
+  "result": {
+    "count": 1,
+    "id": "artificialconnector:artificial_ingot"
+  }
+}

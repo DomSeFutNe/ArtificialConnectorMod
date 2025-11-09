@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "artificialconnector:artificial_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "artificialconnector:artificial_ingot"
+  }
+}

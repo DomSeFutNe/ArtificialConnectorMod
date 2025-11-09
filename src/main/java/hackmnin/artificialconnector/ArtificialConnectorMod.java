@@ -20,7 +20,9 @@ public class ArtificialConnectorMod {
         Lo.info("Registetring Artificial Connector Mod...");
         // --- Call the registration methods ---
         // This tells our ModItems class to register its items.
+        Lo.info("Registering Mod Items and Blocks...");
         ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
         Lo.info("Registration complete.");
         Lo.info("Setting up event listeners...");
         // Add an event listener for building creative mode tabs
@@ -54,6 +56,13 @@ public class ArtificialConnectorMod {
             // Add our block to this tab
             Lo.debug("Adding Artificial Block to Ingredients tab.");
             event.accept(ModItems.ARTIFICIAL_BLOCK.get());
+
+
+            // Add Block to Building Blocks tab
+            Lo.debug("Adding Artificial Block to Building Blocks tab.");
+            // Add our artificial ore block to the Building Blocks tab
+            Lo.debug("Adding Artificial Ore to Building Blocks tab.");
+            event.accept(ModBlocks.ARTIFICIAL_ORE.get());
         }
     }
 }

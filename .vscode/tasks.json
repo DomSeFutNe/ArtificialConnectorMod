@@ -10,7 +10,7 @@
     {
       "label": "task: runClientDebugWin",
       "type": "shell",
-      "command": ".\\gradlew.bat runClient --debug-jvm",
+      "command": ".\\gradlew.bat runData && .\\gradlew.bat runClient --debug-jvm",
       "detail": "Runs the client ON WINDOWS (via PowerShell) and waits for a debugger on port 5005."
     }
   ]

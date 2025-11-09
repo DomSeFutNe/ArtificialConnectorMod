@@ -2,6 +2,7 @@ package hackmnin.artificialconnector.data;
 
 import hackmnin.artificialconnector.ArtificialConnectorMod;
 import hackmnin.artificialconnector.ModItems;
+import hackmnin.artificialconnector.ModBlocks;
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 
@@ -19,9 +20,13 @@ public class ModLangProvider extends LanguageProvider {
      */
     @Override
     protected void addTranslations() {
+        // Items
         add(ModItems.RAW_ARTIFICIAL_ORE.get(), "Raw Artificial Ore");
         add(ModItems.ARTIFICIAL_INGOT.get(), "Artificial Ingot");
         add(ModItems.ARTIFICIAL_NUGGET.get(), "Artificial Nugget");
         add(ModItems.ARTIFICIAL_BLOCK.get(), "Artificial Block");
+
+        // Blocks
+        add(ModBlocks.ARTIFICIAL_ORE.get(), "Artificial Ore");
     }
 }

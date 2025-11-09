@@ -1,8 +1,15 @@
 package hackmnin.artificialconnector;
 
 import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
+import net.neoforged.neoforge.registries.NeoForgeRegistries;
+import net.neoforged.neoforge.registries.DeferredRegister;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
+import net.neoforged.neoforge.common.world.BiomeModifier;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 
 import org.slf4j.Logger;
@@ -15,6 +22,23 @@ public class ArtificialConnectorMod {
     // Logger for the mod
     public static final Logger Lo = LoggerFactory.getLogger("ArtificialConnectorMod");
     public static final String MODID = "artificialconnector";
+    /**
+     * Deferred Register for Configured Features (the "What").
+     */
+    public static final DeferredRegister<ConfiguredFeature<?, ?>> CONFIGURED_FEATURES =
+            DeferredRegister.create(Registries.CONFIGURED_FEATURE, MODID);
+
+    /**
+     * Deferred Register for Placed Features (the "Where").
+     */
+    public static final DeferredRegister<PlacedFeature> PLACED_FEATURES =
+            DeferredRegister.create(Registries.PLACED_FEATURE, MODID);
+
+    /**
+     * Deferred Register for Biome Modifiers (the "In Which Biomes").
+     */
+    public static final DeferredRegister<BiomeModifier> BIOME_MODIFIERS =
+            DeferredRegister.create(NeoForgeRegistries.BIOME_MODIFIER_SERIALIZERS, MODID);
 
     public ArtificialConnectorMod(IEventBus modEventBus) {
         Lo.info("Registetring Artificial Connector Mod...");
@@ -32,6 +56,11 @@ public class ArtificialConnectorMod {
         // Register data generators
         modEventBus.addListener(DataGenerators::gatherData);
         Lo.info("Data generators set up.");
+        Lo.info("Registering world generation features...");
+        CONFIGURED_FEATURES.register(modEventBus);
+        PLACED_FEATURES.register(modEventBus);
+        BIOME_MODIFIERS.register(modEventBus);
+        Lo.info("World generation features registered.");
         Lo.info("Artificial Connector Mod setup complete.");
     }
 

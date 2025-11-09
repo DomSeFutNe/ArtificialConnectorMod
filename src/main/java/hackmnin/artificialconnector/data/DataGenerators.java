@@ -1,5 +1,6 @@
 package hackmnin.artificialconnector.data;
 
+import hackmnin.artificialconnector.data.ModWorldGenProvider;
 import hackmnin.artificialconnector.data.ModBlockStateProvider;
 import hackmnin.artificialconnector.data.ModLootTableProvider;
 
@@ -35,6 +36,7 @@ public class DataGenerators {
                 ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
                 CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
 
+                ArtificialConnectorMod.Lo.info("Creating server side providers...");
                 ArtificialConnectorMod.Lo.info("Creating recipe provider...");
                 generator.addProvider(event.includeServer(),
                                 (DataProvider.Factory<ModRecipeProvider>) (
@@ -47,6 +49,7 @@ public class DataGenerators {
                                                 PackOutput p) -> new ModLootTableProvider(p,
                                                                 lookupProvider));
 
+                ArtificialConnectorMod.Lo.info("Creating client side providers...");
                 ArtificialConnectorMod.Lo.info("Creating item model provider...");
                 generator.addProvider(event.includeClient(),
                                 (DataProvider.Factory<ModItemModelProvider>) (
@@ -64,6 +67,11 @@ public class DataGenerators {
                                 (DataProvider.Factory<ModLangProvider>) (
                                                 PackOutput output) -> new ModLangProvider(output,
                                                                 "en_us"));
+
+                ArtificialConnectorMod.Lo.info("Creating both side providers...");
+                ArtificialConnectorMod.Lo.info("Creating world generation provider...");
+                generator.addProvider(event.includeServer() || event.includeClient(),
+                                new ModWorldGenProvider(packOutput, lookupProvider));
 
                 ArtificialConnectorMod.Lo.info("Data gathering complete.");
         }

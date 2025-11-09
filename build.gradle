@@ -168,3 +168,12 @@ idea {
         downloadJavadoc = true
     }
 }
+
+neoforge {
+    data {
+        // This is the new line.
+        // It makes the game jar available to runData, which is needed
+        // for worldgen data providers (to access BuiltInRegistries).
+        includeServerJar = true
+    }
+}

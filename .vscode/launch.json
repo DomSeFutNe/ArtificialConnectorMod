@@ -2,24 +2,27 @@
     "version": "0.2.0",
     "configurations": [
         {
-            // Dies ist eine "Attach"-Konfiguration. Sie startet nichts,
-            // sie verbindet sich nur mit einem laufenden Prozess.
             "type": "java",
             "name": "Attach to Client",
             "request": "attach",
             "hostName": "localhost",
-            "port": 5005 // Der Standard-Port von --debug-jvm
+            "port": 5005
         }
     ],
     "compounds": [
         {
-            // Dies ist die "Haupt"-Konfiguration, die du ausführen wirst.
-            "name": "Run Client (Compound)",
+            "name": "Run Client (Compound) WSL",
             "configurations": [
-                // 1. Es startet die "Attach"-Konfiguration...
                 "Attach to Client"
             ],
-            "preLaunchTask": "task: runClientDebug" // 2. ...aber ZUERST führt es den Task aus tasks.json aus.
+            "preLaunchTask": "task: runClientDebugWSL"
+        },
+        {
+            "name": "Run Client (Compound) Win",
+            "configurations": [
+                "Attach to Client"
+            ],
+            "preLaunchTask": "task: runClientDebug Win"
         }
     ]
 }

@@ -22,7 +22,7 @@
             "configurations": [
                 "Attach to Client"
             ],
-            "preLaunchTask": "task: runClientDebug Win"
+            "preLaunchTask": "task: runClientDebugWin"
         }
     ]
 }

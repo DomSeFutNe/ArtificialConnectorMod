@@ -2,6 +2,7 @@ package hackmnin.artificialconnector;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Rarity;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
@@ -25,19 +26,22 @@ public class ModItems {
          * The registration for "Raw Artificial Ore".
          */
         public static final DeferredHolder<Item, Item> RAW_ARTIFICIAL_ORE =
-                        ITEMS.register("raw_artificial_ore", () -> new Item(new Item.Properties()));
+                        ITEMS.register("raw_artificial_ore",
+                                        () -> new Item(new Item.Properties().rarity(Rarity.RARE)));
 
         /**
          * The registration for "Artificial Ingot".
          */
         public static final DeferredHolder<Item, Item> ARTIFICIAL_INGOT =
-                        ITEMS.register("artificial_ingot", () -> new Item(new Item.Properties()));
+                        ITEMS.register("artificial_ingot",
+                                        () -> new Item(new Item.Properties().rarity(Rarity.EPIC)));
 
         /**
          * The registration for "Artificial Nugget".
          */
         public static final DeferredHolder<Item, Item> ARTIFICIAL_NUGGET =
-                        ITEMS.register("artificial_nugget", () -> new Item(new Item.Properties()));
+                        ITEMS.register("artificial_nugget",
+                                        () -> new Item(new Item.Properties().rarity(Rarity.RARE)));
 
         /**
          * Registers all items with the mod's event bus. This method is called from the main mod

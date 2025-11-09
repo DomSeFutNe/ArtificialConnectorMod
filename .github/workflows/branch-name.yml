@@ -1,0 +1,30 @@
+name: Check Branch Name
+
+on:
+  # This action runs on any pull request that targets your 'main' branch
+  pull_request:
+    types: [opened, edited, synchronize]
+    branches:
+      - main
+      - master
+
+jobs:
+  check-name:
+    name: Validate 'dev/' prefix
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check branch name format
+        # This is the core logic:
+        # It checks if the branch name (github.head_ref) does NOT start with 'dev/'.
+        if: startsWith(github.head_ref, 'dev/') == false
+
+        # If the name is bad, print an error and fail the check
+        run: |
+          echo "Error: Branch name '${{ github.head_ref }}' must start with the 'dev/' prefix."
+          echo "Please rename your branch to 'dev/your-feature-name'."
+          exit 1
+
+      - name: Good branch name
+        # This step only runs if the 'if' condition above was false (i.e., the name is good)
+        run: echo "Branch name '${{ github.head_ref }}' is correctly formatted."

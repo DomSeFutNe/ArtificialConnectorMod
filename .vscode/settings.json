@@ -1,7 +1,7 @@
 {
     "svn.ignoreMissingSvnWarning": true,
     "java.compile.nullAnalysis.mode": "automatic",
-    "java.configuration.updateBuildConfiguration": "interactive",
+    "java.configuration.updateBuildConfiguration": "automatic",
     "java.compile.nullAnalysis.nonnull": [],
     "java.compile.nullAnalysis.nullable": [],
     "java.checkstyle.version": "10.17.0",

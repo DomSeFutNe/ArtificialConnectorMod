@@ -16,6 +16,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import hackmnin.artificialconnector.data.DataGenerators;
+import com.mojang.serialization.MapCodec;
 
 @Mod("artificialconnector")
 public class ArtificialConnectorMod {
@@ -37,7 +38,7 @@ public class ArtificialConnectorMod {
     /**
      * Deferred Register for Biome Modifiers (the "In Which Biomes").
      */
-    public static final DeferredRegister<BiomeModifier> BIOME_MODIFIERS =
+    public static final DeferredRegister<MapCodec<? extends BiomeModifier>> BIOME_MODIFIERS =
             DeferredRegister.create(NeoForgeRegistries.BIOME_MODIFIER_SERIALIZERS, MODID);
 
     public ArtificialConnectorMod(IEventBus modEventBus) {

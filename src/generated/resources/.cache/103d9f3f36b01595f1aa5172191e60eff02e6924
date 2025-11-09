@@ -1,0 +1,4 @@
+// 1.21.1	2025-11-09T13:15:51.145485228	Registries
+ecf4f1f3d4589601d4db8234b37135b666b53010 data/artificialconnector/neoforge/biome_modifier/add_artificial_ore.json
+10df59d7beb0faadc016c679060c5f0564154869 data/artificialconnector/worldgen/configured_feature/artificial_ore_feature.json
+069082d3fd07bff1af409997675f0c1f9ce4cf59 data/artificialconnector/worldgen/placed_feature/artificial_ore_placed.json

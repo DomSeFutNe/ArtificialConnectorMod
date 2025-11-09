@@ -1,5 +1,6 @@
 {
-  "item.artificialconnector.artificial_block": "Artificial Block",
+  "block.artificialconnector.artificial_block": "Artificial Block",
+  "block.artificialconnector.artificial_ore": "Artificial Ore",
   "item.artificialconnector.artificial_ingot": "Artificial Ingot",
   "item.artificialconnector.artificial_nugget": "Artificial Nugget",
   "item.artificialconnector.raw_artificial_ore": "Raw Artificial Ore"

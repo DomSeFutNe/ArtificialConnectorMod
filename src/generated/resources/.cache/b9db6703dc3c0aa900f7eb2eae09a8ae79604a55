@@ -1,5 +1,6 @@
-// 1.21.1	2025-11-09T10:06:04.101053874	Item Models: artificialconnector
-abeac5023798e02115d76e5f4bdd8289baf73fcb assets/artificialconnector/models/item/artificial_block.json
+// 1.21.1	2025-11-09T12:22:06.246257154	Item Models: artificialconnector
+ba128e56ab77845fe2262a87e330977ba783ab6c assets/artificialconnector/models/item/artificial_block.json
 676af3efab750bb25618fb47d47c2bb087a36734 assets/artificialconnector/models/item/artificial_ingot.json
 2b833e109345ae8b61b7357a0df3b85a1e911092 assets/artificialconnector/models/item/artificial_nugget.json
+9b122133c9d1a76208e1710144e43dfce7152b36 assets/artificialconnector/models/item/artificial_ore.json
 510ebc00b38343144b2c9deb24e0c46d2f6c97ad assets/artificialconnector/models/item/raw_artificial_ore.json

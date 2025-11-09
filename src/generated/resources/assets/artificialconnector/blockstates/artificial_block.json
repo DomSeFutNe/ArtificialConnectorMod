@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "artificialconnector:block/artificial_block"
+    }
+  }
+}

@@ -1,5 +1,6 @@
 package hackmnin.artificialconnector.data;
 
+import hackmnin.artificialconnector.ModBlocks;
 import hackmnin.artificialconnector.ModItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
@@ -78,7 +79,7 @@ public class ModRecipeProvider extends RecipeProvider {
                                 .save(pRecipeOutput, "artificial_ingot_from_nuggets");
 
                 // Rezept: 9 Ingots -> 1 Block
-                ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.ARTIFICIAL_BLOCK.get())
+                ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.ARTIFICIAL_BLOCK.get())
                                 .pattern("III").pattern("III").pattern("III")
                                 .define('I', ModItems.ARTIFICIAL_INGOT.get())
                                 .unlockedBy("has_artificial_ingot",
@@ -88,9 +89,9 @@ public class ModRecipeProvider extends RecipeProvider {
                 // Rezept: 1 Block -> 9 Ingots
                 ShapelessRecipeBuilder
                                 .shapeless(RecipeCategory.MISC, ModItems.ARTIFICIAL_INGOT.get(), 9)
-                                .requires(ModItems.ARTIFICIAL_BLOCK.get())
+                                .requires(ModBlocks.ARTIFICIAL_BLOCK.get())
                                 .unlockedBy("has_artificial_block",
-                                                has(ModItems.ARTIFICIAL_BLOCK.get()))
+                                                has(ModBlocks.ARTIFICIAL_BLOCK.get()))
                                 .save(pRecipeOutput, "artificial_ingot_from_block");
         }
 }

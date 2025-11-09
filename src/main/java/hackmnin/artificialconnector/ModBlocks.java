@@ -1,5 +1,6 @@
 package hackmnin.artificialconnector;
 
+import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -8,7 +9,6 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
-import net.neoforged.neoforge.registries.ForgeRegistries;
 import net.neoforged.neoforge.registries.DeferredHolder;
 
 import java.util.function.Supplier;
@@ -18,50 +18,59 @@ import java.util.function.Supplier;
  */
 public class ModBlocks {
 
-    // Der DeferredRegister für Blöcke
-    public static final DeferredRegister<Block> BLOCKS =
-            DeferredRegister.create(ForgeRegistries.BLOCKS, ArtificialConnectorMod.MODID);
+        // Der DeferredRegister für Blöcke
+        public static final DeferredRegister<Block> BLOCKS =
+                        DeferredRegister.create(Registries.BLOCK, ArtificialConnectorMod.MODID);
 
-    // --- Block-Definitionen ---
+        // --- Block-Definitionen ---
 
-    /**
-     * Unser Artificial Ore Block. Wir definieren hier seine Eigenschaften (z.B. wie Stein, Sound,
-     * Härte).
-     */
-    public static final DeferredHolder<Block, Block> ARTIFICIAL_ORE =
-            registerBlock("artificial_ore",
-                    () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.STONE)
-                            .strength(3.0f, 3.0f) // Härte & Explosionsresistenz (wie Stein)
-                            .requiresCorrectToolForDrops() // Braucht eine Spitzhacke
-                            .sound(SoundType.STONE))); // Sound von Stein
+        /**
+         * Unser Artificial Ore Block. Wir definieren hier seine Eigenschaften (z.B. wie Stein,
+         * Sound, Härte).
+         */
+        public static final DeferredHolder<Block, Block> ARTIFICIAL_ORE = registerBlock(
+                        "artificial_ore",
+                        () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.STONE)
+                                        .strength(3.0f, 3.0f).requiresCorrectToolForDrops()
+                                        .sound(SoundType.STONE)));
+        /**
+         * Unser Artificial Block (aus Ingots). Eigenschaften wie ein Eisenblock (härter, anderer
+         * Sound).
+         */
+        public static final DeferredHolder<Block, Block> ARTIFICIAL_BLOCK = registerBlock(
+                        "artificial_block",
+                        () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.METAL)
+                                        .strength(5.0f, 6.0f).requiresCorrectToolForDrops()
+                                        .sound(SoundType.METAL)));
 
 
-    // --- Hilfsmethoden ---
+        // --- Hilfsmethoden ---
 
-    /**
-     * Eine Helfermethode, um einen Block und sein zugehöriges Item automatisch zu registrieren.
-     * 
-     * @param name Der Name des Blocks (z.B. "artificial_ore")
-     * @param block Der Block (Supplier)
-     * @return Ein DeferredHolder, der auf den Block verweist
-     */
-    private static <T extends Block> DeferredHolder<Block, T> registerBlock(String name,
-            Supplier<T> block) {
-        // 1. Den Block registrieren
-        DeferredHolder<Block, T> blockHolder = BLOCKS.register(name, block);
+        /**
+         * Eine Helfermethode, um einen Block und sein zugehöriges Item automatisch zu registrieren.
+         * 
+         * @param name Der Name des Blocks (z.B. "artificial_ore")
+         * @param block Der Block (Supplier)
+         * @return Ein DeferredHolder, der auf den Block verweist
+         */
+        private static <T extends Block> DeferredHolder<Block, T> registerBlock(String name,
+                        Supplier<T> block) {
+                // 1. Den Block registrieren
+                DeferredHolder<Block, T> blockHolder = BLOCKS.register(name, block);
 
-        // 2. Das "BlockItem" registrieren (damit es im Inventar existiert)
-        // Wir benutzen die registerBlockItem-Helfermethode
-        ModItems.ITEMS.register(name,
-                () -> new BlockItem(blockHolder.get(), new Item.Properties()));
+                // 2. Das "BlockItem" registrieren (damit es im Inventar existiert)
+                // Wir benutzen die registerBlockItem-Helfermethode
+                ModItems.ITEMS.register(name,
+                                () -> new BlockItem(blockHolder.get(), new Item.Properties()));
 
-        return blockHolder;
-    }
+                return blockHolder;
+        }
 
-    /**
-     * Diese Methode wird in der Haupt-Mod-Klasse aufgerufen, um den Block-Register zu "aktivieren".
-     */
-    public static void register(IEventBus eventBus) {
-        BLOCKS.register(eventBus);
-    }
+        /**
+         * Diese Methode wird in der Haupt-Mod-Klasse aufgerufen, um den Block-Register zu
+         * "aktivieren".
+         */
+        public static void register(IEventBus eventBus) {
+                BLOCKS.register(eventBus);
+        }
 }

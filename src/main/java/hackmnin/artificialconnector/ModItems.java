@@ -34,12 +34,6 @@ public class ModItems {
                         ITEMS.register("artificial_ingot", () -> new Item(new Item.Properties()));
 
         /**
-         * The registration for "Artificial Block".
-         */
-        public static final DeferredHolder<Item, Item> ARTIFICIAL_BLOCK =
-                        ITEMS.register("artificial_block", () -> new Item(new Item.Properties()));
-
-        /**
          * The registration for "Artificial Nugget".
          */
         public static final DeferredHolder<Item, Item> ARTIFICIAL_NUGGET =

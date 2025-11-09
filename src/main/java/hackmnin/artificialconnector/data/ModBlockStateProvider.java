@@ -26,6 +26,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         // Sagt dem Spiel, dass es ein einfacher Würfel ist, der
         // auf allen 6 Seiten dieselbe Textur verwendet.
         simpleBlock(ModBlocks.ARTIFICIAL_ORE);
+        simpleBlock(ModBlocks.ARTIFICIAL_BLOCK);
     }
 
     /**

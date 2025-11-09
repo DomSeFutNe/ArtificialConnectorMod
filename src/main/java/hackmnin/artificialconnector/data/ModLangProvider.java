@@ -24,9 +24,9 @@ public class ModLangProvider extends LanguageProvider {
         add(ModItems.RAW_ARTIFICIAL_ORE.get(), "Raw Artificial Ore");
         add(ModItems.ARTIFICIAL_INGOT.get(), "Artificial Ingot");
         add(ModItems.ARTIFICIAL_NUGGET.get(), "Artificial Nugget");
-        add(ModItems.ARTIFICIAL_BLOCK.get(), "Artificial Block");
 
         // Blocks
         add(ModBlocks.ARTIFICIAL_ORE.get(), "Artificial Ore");
+        add(ModBlocks.ARTIFICIAL_BLOCK.get(), "Artificial Block");
     }
 }

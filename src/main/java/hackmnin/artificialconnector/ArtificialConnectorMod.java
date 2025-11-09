@@ -44,25 +44,20 @@ public class ArtificialConnectorMod {
         // Check if we are currently building the "Ingredients" tab
         if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
             Lo.debug("Adding items to Ingredients creative tab.");
-            // Add our raw ore to this tab
             Lo.debug("Adding Raw Artificial Ore to Ingredients tab.");
             event.accept(ModItems.RAW_ARTIFICIAL_ORE.get());
-            // Add our ingot to this tab
             Lo.debug("Adding Artificial Ingot to Ingredients tab.");
             event.accept(ModItems.ARTIFICIAL_INGOT.get());
-            // Add our nugget to this tab
             Lo.debug("Adding Artificial Nugget to Ingredients tab.");
             event.accept(ModItems.ARTIFICIAL_NUGGET.get());
-            // Add our block to this tab
-            Lo.debug("Adding Artificial Block to Ingredients tab.");
-            event.accept(ModItems.ARTIFICIAL_BLOCK.get());
 
 
             // Add Block to Building Blocks tab
             Lo.debug("Adding Artificial Block to Building Blocks tab.");
-            // Add our artificial ore block to the Building Blocks tab
             Lo.debug("Adding Artificial Ore to Building Blocks tab.");
             event.accept(ModBlocks.ARTIFICIAL_ORE.get());
+            Lo.debug("Adding Artificial Block to Building Blocks tab.");
+            event.accept(ModBlocks.ARTIFICIAL_BLOCK.get());
         }
     }
 }

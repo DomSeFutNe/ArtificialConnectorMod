@@ -27,3 +27,4 @@ repo
 
 # Node
 node_modules
+**/.cache/**/*.*

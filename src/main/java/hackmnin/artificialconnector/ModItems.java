@@ -45,9 +45,9 @@ public class ModItems {
         /**
          * The registration for "Artificial Wrench".
          */
-        public static final DeferredHolder<Item, Item> ARTIFICIAL_WRENCH =
-                        ITEMS.register("artificial_wrench",
-                                        () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
+        public static final DeferredHolder<Item, Item> ARTIFICIAL_WRENCH = ITEMS.register(
+                        "artificial_wrench",
+                        () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
 
         /**
          * Registers all items with the mod's event bus. This method is called from the main mod

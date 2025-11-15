@@ -32,5 +32,4 @@ repo/
 **/.cache/**/*.*
 
 # Other
-GEMINI.md
 node_modules/

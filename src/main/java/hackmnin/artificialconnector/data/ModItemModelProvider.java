@@ -32,6 +32,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.RAW_ARTIFICIAL_ORE);
         simpleItem(ModItems.ARTIFICIAL_INGOT);
         simpleItem(ModItems.ARTIFICIAL_NUGGET);
+        simpleItem(ModItems.ARTIFICIAL_WRENCH);
 
         // --- Block Items (Models that point to a block model) ---
         // We use our 'itemModel' helper for blocks

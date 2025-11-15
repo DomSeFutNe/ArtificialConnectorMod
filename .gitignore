@@ -1,26 +1,35 @@
-# eclipse
-bin
-*.launch
-.settings
-.metadata
-.classpath
-.project
+# IDE specific files
+## VS Code
+.vscode/
 
-# idea
-out
+## IntelliJ
+.idea/
+*.iml
 *.ipr
 *.iws
-*.iml
-.idea
 
-# gradle
-build
-.gradle
+## Eclipse
+.settings/
+.classpath
+.project
+.metadata/
+bin/
+*.launch
 
-# other
-eclipse
-run
-runs
-run-data
+# Gradle
+.gradle/
+build/
 
-repo
+# NeoForge UserDev & Build outputs
+run/
+runs/
+run-data/
+out/
+repo/
+
+# Logs & Caches
+*.log
+**/.cache/**/*.*
+
+# Other
+node_modules/

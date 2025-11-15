@@ -1,0 +1,21 @@
+CURRENT_BRANCH=dev/code-structure
+VALID_BRANCH_REGEX="^(dev)\/.*$"
+ALLOWED_PUSH_BRANCHES="^(main|master)$"
+
+# Allow pushing main or master
+if echo "" | grep -qE ""; then
+    echo "Pushing main/master branch... OK."
+    exit 0
+fi
+
+# Check for branch prefix
+if ! echo "" | grep -qE ""; then
+    echo "\n[POLICY] Invalid branch name!" >&2
+    echo "Your branch name must start with the 'dev/' prefix (e.g., 'dev/my-feature')." >&2
+    echo "Current branch: ''" >&2
+    echo "Push rejected.\n" >&2
+    exit 1
+fi
+
+echo "Branch name '' is valid. Proceeding with push..."
+exit 0

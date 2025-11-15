@@ -22,7 +22,7 @@ jobs:
         # If the name is bad, print an error and fail the check
         run: |
           echo "Error: Branch name '${{ github.head_ref }}' must start with the 'dev/' prefix."
-          echo "Please rename your branch to 'dev/your-feature-name'."
+          echo "Please rename your branch to 'dev/<your-feature-name>'."
           exit 1
 
       - name: Good branch name

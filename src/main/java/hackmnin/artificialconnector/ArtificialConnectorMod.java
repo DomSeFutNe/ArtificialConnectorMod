@@ -39,6 +39,14 @@ public class ArtificialConnectorMod {
     public static final DeferredRegister<MapCodec<? extends BiomeModifier>> BIOME_MODIFIERS = DeferredRegister
             .create(NeoForgeRegistries.BIOME_MODIFIER_SERIALIZERS, MODID);
 
+    /**
+     * Constructor for the Artificial Connector Mod. This sets up all necessary
+     * registrations and
+     * event listeners.
+     * 
+     * @param modEventBus The mod's event bus for registering events and listeners.
+     * 
+     */
     public ArtificialConnectorMod(IEventBus modEventBus) {
         Lo.info("Registetring Artificial Connector Mod...");
         // --- Call the registration methods ---

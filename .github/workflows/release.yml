@@ -48,4 +48,6 @@ jobs:
         with:
           curseforge-id: 1385947
           curseforge-token: ${{ secrets.CURSEFORGE_API_KEY }}
+          modrinth-id: "ywJr8jKz"
+          modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
           files: "build/libs/artificialconnector-*.jar"

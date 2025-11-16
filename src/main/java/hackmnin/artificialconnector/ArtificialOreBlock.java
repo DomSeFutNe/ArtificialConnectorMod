@@ -1,4 +1,4 @@
-package hackmnin.artificialconnector;
+package hackmnin.artificialconnector.block;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.DustParticleOptions;

@@ -25,12 +25,11 @@ public class ModBlockStateProvider extends BlockStateProvider {
      * Here we register all our block models.
      */
     @Override
-    protected void registerStatesAndModels() {
-        // FFor ARTIFICIAL_ORE:
-        // Tells the game that it is a simple cube that
-        // uses the same texture on all 6 sides.
-        simpleBlock(ModBlocks.ARTIFICIAL_ORE);
-        simpleBlock(ModBlocks.ARTIFICIAL_BLOCK);
+    protected void registerStatesAndModels() { // For simple blocks that use the same texture on all
+                                               // 6
+                                               // sides.
+        simpleBlock(ModBlocks.ARTIFICIAL_ORE.get());
+        simpleBlock(ModBlocks.ARTIFICIAL_BLOCK.get());
 
         // Generate state-dependent models for the Connector Block
         registerConnectorBlock();
@@ -52,16 +51,5 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
             return ConfiguredModel.builder().modelFile(model).build();
         });
-    }
-
-    /**
-     * Helper method for simple blocks (all sides the same).
-     */
-    private void simpleBlock(DeferredHolder<Block, Block> block) {
-        // Tells the BlockState: "Use this model for all states"
-        simpleBlock(block.get(),
-                // Creates the block model: "parent: block/cube_all"
-                // and "textures.all: .../block/artificial_ore"
-                models().cubeAll(block.getId().getPath(), blockTexture(block.get())));
     }
 }

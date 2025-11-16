@@ -1,7 +1,7 @@
 package hackmnin.artificialconnector;
 
 import com.mojang.serialization.MapCodec;
-import hackmnin.artificialconnector.config.ModConfigs;
+import hackmnin.artificialconnector.ModConfigs;
 import hackmnin.artificialconnector.data.DataGenerators;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;

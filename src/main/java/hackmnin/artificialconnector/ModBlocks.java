@@ -1,5 +1,7 @@
 package hackmnin.artificialconnector;
 
+import hackmnin.artificialconnector.block.ArtificialBlock;
+import hackmnin.artificialconnector.block.ArtificialOreBlock;
 import hackmnin.artificialconnector.block.ConnectorBlock;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.BlockItem;

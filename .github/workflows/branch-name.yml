@@ -17,12 +17,12 @@ jobs:
       - name: Check branch name format
         # This is the core logic:
         # It checks if the branch name (github.head_ref) does NOT start with 'dev/'.
-        if: startsWith(github.head_ref, 'dev/') == false
+        if: startsWith(github.head_ref, 'dev/') == false && startsWith(github.head_ref, 'feature/') == false && startsWith(github.head_ref, 'dependabot/') == false
 
         # If the name is bad, print an error and fail the check
         run: |
-          echo "Error: Branch name '${{ github.head_ref }}' must start with the 'dev/' prefix."
-          echo "Please rename your branch to 'dev/<your-feature-name>'."
+          echo "Error: Branch name '${{ github.head_ref }}' must start with the 'dev/', 'feature/', or 'dependabot/' prefix."
+          echo "Please rename your branch to one of these prefixes followed by your feature name."
           exit 1
 
       - name: Good branch name

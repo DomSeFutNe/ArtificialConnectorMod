@@ -1,5 +1,5 @@
 CURRENT_BRANCH=dev/fix-ci-errors
-VALID_BRANCH_REGEX="^(dev)\/.*$"
+VALID_BRANCH_REGEX="^(dev|feature|dependabot)\/.*$"
 ALLOWED_PUSH_BRANCHES="^(main|master)$"
 
 # Allow pushing main or master
@@ -11,7 +11,7 @@ fi
 # Check for branch prefix
 if ! echo "" | grep -qE ""; then
     echo "\n[POLICY] Invalid branch name!" >&2
-    echo "Your branch name must start with the 'dev/' prefix (e.g., 'dev/my-feature')." >&2
+    echo "Your branch name must start with the 'dev/', 'feature/', or 'dependabot/' prefix (e.g., 'dev/my-feature')." >&2
     echo "Current branch: ''" >&2
     echo "Push rejected.\n" >&2
     exit 1

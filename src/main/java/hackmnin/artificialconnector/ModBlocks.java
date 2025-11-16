@@ -20,14 +20,11 @@ import java.util.function.Supplier;
  */
 public class ModBlocks {
 
-        // Der DeferredRegister für Blöcke
+        // The DeferredRegister for blocks
         public static final DeferredRegister<Block> BLOCKS =
                         DeferredRegister.create(Registries.BLOCK, ArtificialConnectorMod.MODID);
 
-        // --- Block-Definitionen ---
-        // ... (in ModBlocks.java)
-
-        // ... (BLOCKS DeferredRegister) ...
+        // --- Block Definitions ---
 
         /**
          * Our Artificial Ore Block. We now use our custom ArtificialOreBlock class.
@@ -37,7 +34,7 @@ public class ModBlocks {
                         () -> new ArtificialOreBlock(BlockBehaviour.Properties.of()
                                         .mapColor(MapColor.STONE).strength(3.0f, 3.0f)
                                         .requiresCorrectToolForDrops().sound(SoundType.STONE)),
-                        Rarity.EPIC); // <-- Pass rarity to the helper
+                        Rarity.EPIC);
 
         /**
          * Our Artificial Block (from Ingots). We now use our custom ArtificialBlock class.
@@ -47,7 +44,7 @@ public class ModBlocks {
                         () -> new ArtificialBlock(BlockBehaviour.Properties.of()
                                         .mapColor(MapColor.METAL).strength(5.0f, 6.0f)
                                         .requiresCorrectToolForDrops().sound(SoundType.METAL)),
-                        Rarity.EPIC); // <-- Pass rarity to the helper
+                        Rarity.EPIC);
 
         /**
          * The main Connector Block which will interact with the AI.
@@ -69,17 +66,12 @@ public class ModBlocks {
          */
         private static <T extends Block> DeferredHolder<Block, T> registerBlock(String name,
                         Supplier<T> block, Rarity rarity) {
-                // 1. Register the block
                 DeferredHolder<Block, T> blockHolder = BLOCKS.register(name, block);
-
-                // 2. Register the BlockItem, now passing the rarity
                 ModItems.ITEMS.register(name, () -> new BlockItem(blockHolder.get(),
                                 new Item.Properties().rarity(rarity)));
-
                 return blockHolder;
         }
 
-        // We keep the old helper method just in case we add non-sparkling blocks later
         /**
          * Overloaded helper for default rarity.
          */
@@ -89,8 +81,9 @@ public class ModBlocks {
         }
 
         /**
-         * Diese Methode wird in der Haupt-Mod-Klasse aufgerufen, um den Block-Register zu
-         * "aktivieren".
+         * This method registers all blocks to the event bus.
+         * 
+         * @param eventBus The mod event bus
          */
         public static void register(IEventBus eventBus) {
                 BLOCKS.register(eventBus);

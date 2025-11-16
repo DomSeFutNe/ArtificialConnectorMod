@@ -31,7 +31,6 @@ public class ModCreativeTabs {
                                                                                 .get());
                                                                 output.accept(ModItems.ARTIFICIAL_WRENCH
                                                                                 .get());
-
                                                                 output.accept(ModBlocks.ARTIFICIAL_ORE
                                                                                 .get());
                                                                 output.accept(ModBlocks.ARTIFICIAL_BLOCK

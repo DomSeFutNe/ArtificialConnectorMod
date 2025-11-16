@@ -5,7 +5,6 @@ import hackmnin.artificialconnector.ModItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.loot.LootTableProvider;
-// KORREKTUR: Wir brauchen BlockLootSubProvider, nicht nur LootTableSubProvider
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
@@ -13,43 +12,38 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
-// KORREKTUR: Import für SetItemCountFunction
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
-// KORREKTUR: Import für ConstantValue
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.neoforged.neoforge.registries.DeferredHolder;
 
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;
-import java.util.stream.Collectors; // KORREKTUR: Fehlender Import
+import java.util.stream.Collectors;
 
 /**
- * Generiert Loot-Tabellen (z.B. Block-Drops).
+ * Generates loot tables (e.g., block drops).
  */
 public class ModLootTableProvider extends LootTableProvider {
 
     public ModLootTableProvider(PackOutput pOutput,
             CompletableFuture<HolderLookup.Provider> pLookupProvider) {
-        super(pOutput, Set.of(), List.of(
-                // Diese Zeile ist jetzt korrekt, da ModBlockLoot die richtige Superklasse hat
-                new SubProviderEntry(ModBlockLoot::new, LootContextParamSets.BLOCK)),
+        super(pOutput, Set.of(),
+                List.of(new SubProviderEntry(ModBlockLoot::new, LootContextParamSets.BLOCK)),
                 pLookupProvider);
     }
 
     /**
-     * Interne Klasse, die die eigentliche Logik für Block-Loot enthält. KORREKTUR: Erbt von
-     * BlockLootSubProvider, nicht LootTableSubProvider
+     * Inner class that contains the actual logic for block loot.
      */
     private static class ModBlockLoot extends BlockLootSubProvider {
 
         protected ModBlockLoot(HolderLookup.Provider pRegistries) {
-            // KORREKTUR: FeatureFlags.VANILLA_SET wird hier übergeben
             super(Set.of(), FeatureFlags.VANILLA_SET, pRegistries);
         }
 
         /**
-         * Hier definieren wir unsere Block-Drops. (Diese @Override ist jetzt korrekt)
+         * This is where we define our block drops.
          */
         @Override
         protected void generate() {
@@ -59,24 +53,21 @@ public class ModLootTableProvider extends LootTableProvider {
         }
 
         /**
-         * Überschreibt die Standard-Methode, damit wir nur unsere eigenen Blöcke hinzufügen.
-         * (Diese @Override ist jetzt korrekt)
+         * Overrides the default method so we only add our own blocks.
          */
         @Override
         protected Iterable<Block> getKnownBlocks() {
-            // KORREKTUR: Wir konvertieren den Stream in eine Liste
             return ModBlocks.BLOCKS.getEntries().stream().map(DeferredHolder::get)
                     .collect(Collectors.toList());
         }
 
         /**
-         * Eine Standard-Methode, um einen "Erz-Drop" zu erstellen (1 Item, Respektiert
-         * Seiden-Note).
+         * A standard method to create an "ore drop" (1 item, respects Silk Touch).
          */
+        @Override
         protected LootTable.Builder createOreDrop(Block pBlock, Item pItem) {
             return createSilkTouchDispatchTable(pBlock,
                     applyExplosionDecay(pBlock, LootItem.lootTableItem(pItem)
-                            // KORREKTUR: Wir müssen SetItemCountFunction verwenden
                             .apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0F)))));
         }
     }

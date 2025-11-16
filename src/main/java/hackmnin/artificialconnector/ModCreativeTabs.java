@@ -1,6 +1,5 @@
 package hackmnin.artificialconnector;
 
-import hackmnin.artificialconnector.ArtificialConnectorMod;
 import hackmnin.artificialconnector.ModBlocks;
 import hackmnin.artificialconnector.ModItems;
 import net.minecraft.core.registries.Registries;

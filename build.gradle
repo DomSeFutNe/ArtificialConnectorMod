@@ -178,3 +178,11 @@ task printCheckstyleJarPath {
         }
     }
 }
+
+// This is the crucial part:
+// It tells the 'data' source set that it can access the classes from the 'main' source set.
+// This resolves the compilation errors during data generation without moving files around.
+sourceSets {
+    data.compileClasspath += main.output
+    data.runtimeClasspath += main.output
+}

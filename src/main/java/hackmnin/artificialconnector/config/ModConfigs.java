@@ -1,4 +1,4 @@
-package hackmnin.artificialconnector;
+package hackmnin.artificialconnector.config;
 
 import net.neoforged.neoforge.common.ModConfigSpec;
 

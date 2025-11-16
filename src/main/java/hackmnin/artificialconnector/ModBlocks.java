@@ -1,5 +1,6 @@
 package hackmnin.artificialconnector;
 
+import hackmnin.artificialconnector.block.ConnectorBlock;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -20,8 +21,8 @@ import java.util.function.Supplier;
 public class ModBlocks {
 
         // Der DeferredRegister für Blöcke
-        public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(Registries.BLOCK,
-                        ArtificialConnectorMod.MODID);
+        public static final DeferredRegister<Block> BLOCKS =
+                        DeferredRegister.create(Registries.BLOCK, ArtificialConnectorMod.MODID);
 
         // --- Block-Definitionen ---
         // ... (in ModBlocks.java)
@@ -39,8 +40,7 @@ public class ModBlocks {
                         Rarity.EPIC); // <-- Pass rarity to the helper
 
         /**
-         * Our Artificial Block (from Ingots). We now use our custom ArtificialBlock
-         * class.
+         * Our Artificial Block (from Ingots). We now use our custom ArtificialBlock class.
          */
         public static final DeferredHolder<Block, Block> ARTIFICIAL_BLOCK = registerBlock(
                         "artificial_block",
@@ -50,10 +50,20 @@ public class ModBlocks {
                         Rarity.EPIC); // <-- Pass rarity to the helper
 
         /**
+         * The main Connector Block which will interact with the AI.
+         */
+        public static final DeferredHolder<Block, Block> CONNECTOR_BLOCK = registerBlock(
+                        "connector_block",
+                        () -> new ConnectorBlock(BlockBehaviour.Properties.of()
+                                        .mapColor(MapColor.METAL).strength(5.0f, 6.0f)
+                                        .requiresCorrectToolForDrops().sound(SoundType.METAL)),
+                        Rarity.RARE);
+
+        /**
          * Helper method to register a block and its item, now with Rarity.
          * 
-         * @param name   The name of the block
-         * @param block  The block supplier
+         * @param name The name of the block
+         * @param block The block supplier
          * @param rarity The rarity for the BlockItem
          * @return A DeferredHolder pointing to the block
          */
@@ -79,8 +89,7 @@ public class ModBlocks {
         }
 
         /**
-         * Diese Methode wird in der Haupt-Mod-Klasse aufgerufen, um den Block-Register
-         * zu
+         * Diese Methode wird in der Haupt-Mod-Klasse aufgerufen, um den Block-Register zu
          * "aktivieren".
          */
         public static void register(IEventBus eventBus) {

@@ -1,4 +1,8 @@
-#  Artificial Connector: Your Bridge to AI in Minecraft!
+<p align="center">
+  <img src="https://raw.githubusercontent.com/hackmnin/ArtificialConnectorMod/main/.github/assets/artificial_connector_logo.png" alt="Artificial Connector Logo" width="256"/>
+</p>
+
+# Artificial Connector: Your Bridge to AI in Minecraft!
 
 Ever wished you could bring the power of modern AI into your Minecraft world? The **Artificial Connector** mod makes it possible! This mod introduces a sophisticated machine, the **Connector Block**, that acts as a direct interface to external generative AI models, opening up a universe of new possibilities for interaction and automation.
 

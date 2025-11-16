@@ -1,7 +1,7 @@
 {
     "java.compile.nullAnalysis.mode": "automatic",
     "svn.ignoreMissingSvnWarning": true,
-    "java.configuration.updateBuildConfiguration": "interactive",
+    "java.configuration.updateBuildConfiguration": "automatic",
     "checkstyle.trace.server": "off",
     "checkstyle.checkstylePath": "./config/checkstyle/checkstyle-10.24.0-all.jar",
     "checkstyle.configurationPath": "./config/checkstyle/google_checks.xml"

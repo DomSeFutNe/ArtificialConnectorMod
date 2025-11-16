@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "status=failed": {
+      "model": "artificialconnector:block/connector_block_failed"
+    },
+    "status=idle": {
+      "model": "artificialconnector:block/connector_block_idle"
+    },
+    "status=processing": {
+      "model": "artificialconnector:block/connector_block_processing"
+    },
+    "status=success": {
+      "model": "artificialconnector:block/connector_block_success"
+    }
+  }
+}

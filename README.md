@@ -1,3 +1,7 @@
+<p align="center">
+  <img src=".github/assets/artificial_connector_logo.png" alt="Artificial Connector Logo" width="256"/>
+</p>
+
 # Artificial Connector Mod
 
 A Minecraft mod for version 1.21.1 using the NeoForge mod loader, designed to integrate external AI APIs directly into the game.

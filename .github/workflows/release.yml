@@ -46,5 +46,5 @@ jobs:
       - name: Publish to CurseForge using mc-publish
         uses: Kir-Antipov/mc-publish@v3.3
         with:
-          curseforge-id: "artificial-connector"
+          curseforge-id: 1385947
           curseforge-token: ${{ secrets.CURSEFORGE_API_KEY }}

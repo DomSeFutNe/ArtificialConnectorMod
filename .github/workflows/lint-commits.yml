@@ -1,0 +1,25 @@
+name: Lint Commit Messages
+
+on:
+  # This action runs on any pull request that targets your 'main' branch
+  pull_request:
+    types: [opened, edited, synchronize]
+    branches:
+      - main
+      - master
+
+jobs:
+  commit-lint:
+    name: Lint Commit Messages
+    runs-on: ubuntu-latest
+
+    steps:
+      # This step checks out the code (the commits) of the pull request
+      - name: Checkout PR code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Fetches all history for linting
+
+      # This step runs the linter
+      - name: Run Commitlint
+        uses: wagoid/commitlint-github-action@v6

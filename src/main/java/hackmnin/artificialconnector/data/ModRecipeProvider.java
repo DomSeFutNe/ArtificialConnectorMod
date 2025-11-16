@@ -31,54 +31,47 @@ public class ModRecipeProvider extends RecipeProvider {
          */
         @Override
         protected void buildRecipes(RecipeOutput pRecipeOutput) {
-
-                // --- SMELTING RECIPE (Standard Oven) ---
+                // --- Smelting Recipe (Furnace) ---
                 SimpleCookingRecipeBuilder
                                 .smelting(Ingredient.of(ModItems.RAW_ARTIFICIAL_ORE.get()),
                                                 RecipeCategory.MISC,
-                                                ModItems.ARTIFICIAL_INGOT.get(), 0.7f, 200 // 10
-                                                                                           // seconds
-                                )
+                                                ModItems.ARTIFICIAL_INGOT.get(), 0.7f, 200) // 10
+                                // seconds
                                 .unlockedBy("has_raw_artificial_ore",
                                                 has(ModItems.RAW_ARTIFICIAL_ORE.get()))
                                 .save(pRecipeOutput,
                                                 "artificial_ingot_from_smelting_raw_artificial_ore");
 
-                // --- BLASTING RECIPE (Blast Furnace) ---
-                // This is the new part
+                // --- Blasting Recipe (Blast Furnace) ---
                 SimpleCookingRecipeBuilder
-                                .blasting(Ingredient.of(ModItems.RAW_ARTIFICIAL_ORE.get()), // Same
-                                                                                            // Input
+                                .blasting(Ingredient.of(ModItems.RAW_ARTIFICIAL_ORE.get()),
                                                 RecipeCategory.MISC,
-                                                ModItems.ARTIFICIAL_INGOT.get(), // Same Output
-                                                0.7f, // Same Experience
-                                                100 // Half the time (5 seconds)
-                                )
+                                                ModItems.ARTIFICIAL_INGOT.get(), 0.7f, 100) // 5
+                                                                                            // seconds
                                 .unlockedBy("has_raw_artificial_ore",
                                                 has(ModItems.RAW_ARTIFICIAL_ORE.get()))
-                                // IMPORTANT: A different save name!
                                 .save(pRecipeOutput,
                                                 "artificial_ingot_from_blasting_raw_artificial_ore");
 
-                // Rezept: 1 Ingot -> 9 Nuggets
+                // --- Crafting Recipes ---
+
+                // Recipe: 1 Ingot -> 9 Nuggets
                 ShapelessRecipeBuilder
                                 .shapeless(RecipeCategory.MISC, ModItems.ARTIFICIAL_NUGGET.get(), 9)
-                                .requires(ModItems.ARTIFICIAL_INGOT.get()) // Input
+                                .requires(ModItems.ARTIFICIAL_INGOT.get())
                                 .unlockedBy("has_artificial_ingot",
                                                 has(ModItems.ARTIFICIAL_INGOT.get()))
                                 .save(pRecipeOutput, "artificial_nugget_from_ingot");
 
-                // Rezept: 9 Nuggets -> 1 Ingot
+                // Recipe: 9 Nuggets -> 1 Ingot
                 ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.ARTIFICIAL_INGOT.get())
-                                .pattern("NNN") // 3x3 Grid
-                                .pattern("NNN").pattern("NNN")
-                                .define('N', ModItems.ARTIFICIAL_NUGGET.get()) // 'N' ist unser
-                                                                               // Nugget
+                                .pattern("NNN").pattern("NNN").pattern("NNN")
+                                .define('N', ModItems.ARTIFICIAL_NUGGET.get())
                                 .unlockedBy("has_artificial_nugget",
                                                 has(ModItems.ARTIFICIAL_NUGGET.get()))
                                 .save(pRecipeOutput, "artificial_ingot_from_nuggets");
 
-                // Rezept: 9 Ingots -> 1 Block
+                // Recipe: 9 Ingots -> 1 Block
                 ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.ARTIFICIAL_BLOCK.get())
                                 .pattern("III").pattern("III").pattern("III")
                                 .define('I', ModItems.ARTIFICIAL_INGOT.get())
@@ -86,7 +79,7 @@ public class ModRecipeProvider extends RecipeProvider {
                                                 has(ModItems.ARTIFICIAL_INGOT.get()))
                                 .save(pRecipeOutput, "artificial_block_from_ingots");
 
-                // Rezept: 1 Block -> 9 Ingots
+                // Recipe: 1 Block -> 9 Ingots
                 ShapelessRecipeBuilder
                                 .shapeless(RecipeCategory.MISC, ModItems.ARTIFICIAL_INGOT.get(), 9)
                                 .requires(ModBlocks.ARTIFICIAL_BLOCK.get())

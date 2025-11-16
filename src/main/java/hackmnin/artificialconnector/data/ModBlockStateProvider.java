@@ -2,14 +2,18 @@ package hackmnin.artificialconnector.data;
 
 import hackmnin.artificialconnector.ArtificialConnectorMod;
 import hackmnin.artificialconnector.ModBlocks;
+import hackmnin.artificialconnector.block.properties.ConnectorStatus;
+import hackmnin.artificialconnector.block.properties.ModBlockStateProperties;
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
 import net.neoforged.neoforge.registries.DeferredHolder;
 
 /**
- * Generiert BlockState- und Block-Modell-JSONs.
+ * Generates BlockState and Block Model JSONs.
  */
 public class ModBlockStateProvider extends BlockStateProvider {
 
@@ -18,25 +22,34 @@ public class ModBlockStateProvider extends BlockStateProvider {
     }
 
     /**
-     * Hier registrieren wir alle unsere Block-Modelle.
+     * Here we register all our block models.
      */
     @Override
-    protected void registerStatesAndModels() {
-        // Für ARTIFICIAL_ORE:
-        // Sagt dem Spiel, dass es ein einfacher Würfel ist, der
-        // auf allen 6 Seiten dieselbe Textur verwendet.
-        simpleBlock(ModBlocks.ARTIFICIAL_ORE);
-        simpleBlock(ModBlocks.ARTIFICIAL_BLOCK);
+    protected void registerStatesAndModels() { // For simple blocks that use the same texture on all
+                                               // 6
+                                               // sides.
+        simpleBlock(ModBlocks.ARTIFICIAL_ORE.get());
+        simpleBlock(ModBlocks.ARTIFICIAL_BLOCK.get());
+
+        // Generate state-dependent models for the Connector Block
+        registerConnectorBlock();
     }
 
     /**
-     * Helfermethode für einfache Blöcke (alle Seiten gleich).
+     * Generates the blockstate and models for the Connector Block based on its status property.
      */
-    private void simpleBlock(DeferredHolder<Block, Block> block) {
-        // Sagt dem BlockState: "Verwende dieses Modell für alle Zustände"
-        simpleBlock(block.get(),
-                // Erstellt das Block-Modell: "parent: block/cube_all"
-                // und "textures.all: .../block/artificial_ore"
-                models().cubeAll(block.getId().getPath(), blockTexture(block.get())));
+    private void registerConnectorBlock() {
+        // This generates the blockstate JSON that maps each state to a model.
+        getVariantBuilder(ModBlocks.CONNECTOR_BLOCK.get()).forAllStates(state -> {
+            ConnectorStatus status = state.getValue(ModBlockStateProperties.CONNECTOR_STATUS);
+            String modelName = "block/connector_block_" + status.getSerializedName();
+
+            // For now, all states will use the 'idle' texture as a placeholder.
+            // We just need to create the model files.
+            ResourceLocation texture = modLoc("block/connector_block_idle");
+            var model = models().cubeAll(modelName, texture);
+
+            return ConfiguredModel.builder().modelFile(model).build();
+        });
     }
 }

@@ -1,8 +1,8 @@
 package hackmnin.artificialconnector.data;
 
-import hackmnin.artificialconnector.data.ModWorldGenProvider;
-import hackmnin.artificialconnector.data.ModBlockStateProvider;
-import hackmnin.artificialconnector.data.ModLootTableProvider;
+// import hackmnin.artificialconnector.data.ModWorldGenProvider;
+// import hackmnin.artificialconnector.data.ModBlockStateProvider;
+// import hackmnin.artificialconnector.data.ModLootTableProvider;
 
 import net.minecraft.data.DataProvider;
 import net.minecraft.core.HolderLookup;

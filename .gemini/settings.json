@@ -1,0 +1,25 @@
+{
+  "general": {
+    "preferredEditor": "code",
+    "vimMode": false,
+    "checkpointing": {
+      "enabled": true
+    },
+    "sessionRetention": {
+      "enabled": true,
+      "maxAge": "60d"
+    }
+  },
+  "tools": {
+    "core": [
+      "shell",
+      "file",
+      "http",
+      "code",
+      "python",
+      "git",
+      "docker",
+      "gradle"
+    ]
+  }
+}

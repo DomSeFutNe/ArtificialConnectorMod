@@ -2,6 +2,7 @@ plugins {
     id 'java-library'
     id 'maven-publish'
     id 'net.neoforged.gradle.userdev' version '7.1.1'
+    id 'checkstyle'
 }
 
 tasks.named('wrapper', Wrapper).configure {
@@ -166,5 +167,14 @@ idea {
     module {
         downloadSources = true
         downloadJavadoc = true
+    }
+}
+
+task printCheckstyleJarPath {
+    inputs.files(configurations.checkstyle)
+    doLast {
+        inputs.files.each { File file ->
+            println file.absolutePath
+        }
     }
 }

@@ -3,7 +3,7 @@ plugins {
     id 'maven-publish'
     id 'net.neoforged.gradle.userdev' version '7.1.1'
     id 'checkstyle'
-    id 'com.matthewprenger.cursegradle' version '1.4.0'
+    id 'com.matthewprenger.cursegradle' version '1.5.0'
 }
 
 tasks.named('wrapper', Wrapper).configure {
@@ -186,6 +186,12 @@ task printCheckstyleJarPath {
 sourceSets {
     data.compileClasspath += main.output
     data.runtimeClasspath += main.output
+}
+
+// Configure the Checkstyle plugin
+checkstyle {
+    toolVersion = '10.17.0'
+    configFile = file('config/checkstyle/google_checks.xml')
 }
 
 // CurseForge Publishing Configuration

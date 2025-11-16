@@ -1,0 +1,28 @@
+{
+  "branches": ["main"],
+  "plugins": [
+    "@semantic-release/commit-analyzer",
+    "@semantic-release/release-notes-generator",
+    [
+      "@semantic-release/changelog",
+      {
+        "changelogFile": "CHANGELOG.md"
+      }
+    ],
+    [
+      "@semantic-release/exec",
+      {
+        "prepareCmd": "sed -i 's/mod_version=.*/mod_version=${nextRelease.version}/' gradle.properties && ./gradlew build",
+        "publishCmd": "./gradlew curseforge"
+      }
+    ],
+    [
+      "@semantic-release/git",
+      {
+        "assets": ["gradle.properties", "CHANGELOG.md"],
+        "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+      }
+    ],
+    "@semantic-release/github"
+  ]
+}

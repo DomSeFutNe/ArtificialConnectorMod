@@ -48,3 +48,4 @@ jobs:
         with:
           curseforge-id: 1385947
           curseforge-token: ${{ secrets.CURSEFORGE_API_KEY }}
+          files: "build/libs/artificialconnector-*.jar"

@@ -3,6 +3,7 @@ plugins {
     id 'maven-publish'
     id 'net.neoforged.gradle.userdev' version '7.1.1'
     id 'checkstyle'
+    id 'com.github.spotbugs' version '6.0.19'
 }
 
 tasks.named('wrapper', Wrapper).configure {
@@ -192,3 +193,13 @@ checkstyle {
     toolVersion = '10.17.0'
     configFile = file('config/checkstyle/google_checks.xml')
 }
+
+// Configure the SpotBugs static analysis plugin
+spotbugs {
+    // You can customize the effort and report level here
+    effort = "max"
+    reportLevel = "low"
+}
+
+// Ensure spotbugs runs as part of the 'check' task
+tasks.named('check') { dependsOn 'spotbugsMain' }

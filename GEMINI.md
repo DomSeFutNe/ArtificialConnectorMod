@@ -103,6 +103,16 @@ We have a very strict local and server-side setup.
     * `editor.formatOnSave` is set to **`false`**.
     * `editor.codeActionsOnSave: { "source.fixAll.checkstyle": "explicit" }` is **enabled**. This is our "fix on save" mechanism.
 
+### Additional Settings
+
+You have additional permissions by .gemini/settings.json to use terminal commands.
+
+**1. Available terminal command tools:**
+* **shell**
+* **file**
+* **git**
+* **gradle**
+
 **(END OF THE SUMMARY)**
 </INSTRUCTIONS>
 

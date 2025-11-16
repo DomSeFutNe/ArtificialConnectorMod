@@ -3,6 +3,7 @@ plugins {
     id 'maven-publish'
     id 'net.neoforged.gradle.userdev' version '7.1.1'
     id 'checkstyle'
+    id 'com.matthewprenger.cursegradle' version '1.4.0'
 }
 
 tasks.named('wrapper', Wrapper).configure {
@@ -185,4 +186,26 @@ task printCheckstyleJarPath {
 sourceSets {
     data.compileClasspath += main.output
     data.runtimeClasspath += main.output
+}
+
+// CurseForge Publishing Configuration
+curseforge {
+    // IMPORTANT: Do not hardcode your API key.
+    // Load it from an environment variable for security.
+    // In your WSL terminal, run: export CURSEFORGE_API_KEY="your-key-here"
+    apiKey = System.getenv("CURSEFORGE_API_KEY")
+
+    project {
+        id = 'YOUR_PROJECT_ID' // Replace with your CurseForge Project ID
+        changelogType = 'markdown'
+        changelog = file('CHANGELOG.md')
+        releaseType = 'alpha' // Can be 'release', 'beta', or 'alpha'
+
+        // This defines the main file to be uploaded.
+        mainArtifact(tasks.jar)
+
+        // Add required game versions for CurseForge filters
+        addGameVersion 'Minecraft 1.21.1'
+        addGameVersion 'NeoForge'
+    }
 }

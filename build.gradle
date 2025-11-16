@@ -190,16 +190,13 @@ sourceSets {
 
 // CurseForge Publishing Configuration
 curseforge {
-    // IMPORTANT: Do not hardcode your API key.
-    // Load it from an environment variable for security.
-    // In your WSL terminal, run: export CURSEFORGE_API_KEY="your-key-here"
     apiKey = System.getenv("CURSEFORGE_API_KEY")
 
     project {
-        id = 'YOUR_PROJECT_ID' // Replace with your CurseForge Project ID
+        id = 'artificial-connector'
         changelogType = 'markdown'
         changelog = file('CHANGELOG.md')
-        releaseType = 'alpha' // Can be 'release', 'beta', or 'alpha'
+        releaseType = 'alpha'
 
         // This defines the main file to be uploaded.
         mainArtifact(tasks.jar)
@@ -209,3 +206,6 @@ curseforge {
         addGameVersion 'NeoForge'
     }
 }
+
+// Disable the curseforge task if the API key is not present.
+tasks.named('curseforge').configure { onlyIf { System.getenv('CURSEFORGE_API_KEY') != null } }

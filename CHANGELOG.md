@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/DomSeFutNe/ArtificialConnectorMod/compare/v1.0.1...v1.0.2) (2025-11-16)
+
+
+### Bug Fixes
+
+* **docs:** Use relative path for logo ([#11](https://github.com/DomSeFutNe/ArtificialConnectorMod/issues/11)) ([71a5ece](https://github.com/DomSeFutNe/ArtificialConnectorMod/commit/71a5ecea8359ff8af38ad123d4158e496c31e5ca))
+
 ## [1.0.1](https://github.com/DomSeFutNe/ArtificialConnectorMod/compare/v1.0.0...v1.0.1) (2025-11-16)
 
 

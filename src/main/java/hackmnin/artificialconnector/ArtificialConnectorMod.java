@@ -2,15 +2,12 @@ package hackmnin.artificialconnector;
 
 import com.mojang.serialization.MapCodec;
 import hackmnin.artificialconnector.data.DataGenerators;
-// import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.common.world.BiomeModifier;
-import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.neoforged.neoforge.registries.NeoForgeRegistries;
 import org.slf4j.Logger;
@@ -54,11 +51,8 @@ public class ArtificialConnectorMod {
         Lo.info("Registering Mod Items and Blocks...");
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
+        ModCreativeTabs.CREATIVE_MODE_TABS.register(modEventBus);
         Lo.info("Registration complete.");
-        Lo.info("Setting up event listeners...");
-        // Add an event listener for building creative mode tabs
-        modEventBus.addListener(this::addCreative);
-        Lo.info("Event listeners set up.");
         Lo.info("Setting up data generators...");
         // Register data generators
         modEventBus.addListener(DataGenerators::gatherData);
@@ -69,30 +63,5 @@ public class ArtificialConnectorMod {
         BIOME_MODIFIERS.register(modEventBus);
         Lo.info("World generation features registered.");
         Lo.info("Artificial Connector Mod setup complete.");
-    }
-
-    /**
-     * Event listener that adds our items to the creative mode tabs.
-     * 
-     * @param event The event fired when tabs are being built.
-     */
-    private void addCreative(BuildCreativeModeTabContentsEvent event) {
-        // Check if we are currently building the "Ingredients" tab
-        if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
-            Lo.debug("Adding items to Ingredients creative tab.");
-            Lo.debug("Adding Raw Artificial Ore to Ingredients tab.");
-            event.accept(ModItems.RAW_ARTIFICIAL_ORE.get());
-            Lo.debug("Adding Artificial Ingot to Ingredients tab.");
-            event.accept(ModItems.ARTIFICIAL_INGOT.get());
-            Lo.debug("Adding Artificial Nugget to Ingredients tab.");
-            event.accept(ModItems.ARTIFICIAL_NUGGET.get());
-
-            // Add Block to Building Blocks tab
-            Lo.debug("Adding Artificial Block to Building Blocks tab.");
-            Lo.debug("Adding Artificial Ore to Building Blocks tab.");
-            event.accept(ModBlocks.ARTIFICIAL_ORE.get());
-            Lo.debug("Adding Artificial Block to Building Blocks tab.");
-            event.accept(ModBlocks.ARTIFICIAL_BLOCK.get());
-        }
     }
 }

@@ -1,0 +1,26 @@
+{
+  "$schema": "https://raw.githubusercontent.com/google-gemini/gemini-cli/main/schemas/settings.schema.json",
+  "general": {
+    "preferredEditor": "vscode",
+    "vimMode": false,
+    "checkpointing": {
+      "enabled": true
+    },
+    "sessionRetention": {
+      "enabled": true,
+      "maxAge": "60d"
+    }
+  },
+  "tools": {
+    "core": [
+      "shell",
+      "file",
+      "http",
+      "code",
+      "python",
+      "git",
+      "docker",
+      "gradle"
+    ]
+  }
+}

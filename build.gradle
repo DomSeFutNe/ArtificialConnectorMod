@@ -3,7 +3,6 @@ plugins {
     id 'maven-publish'
     id 'net.neoforged.gradle.userdev' version '7.1.1'
     id 'checkstyle'
-    id 'com.matthewprenger.cursegradle' version '1.5.0'
 }
 
 tasks.named('wrapper', Wrapper).configure {
@@ -192,21 +191,4 @@ sourceSets {
 checkstyle {
     toolVersion = '10.17.0'
     configFile = file('config/checkstyle/google_checks.xml')
-}
-
-// CurseForge Publishing Configuration
-// Only configure CurseForge publishing if the API key is present.
-if (System.getenv("CURSEFORGE_API_KEY") != null) {
-    curseforge {
-        apiKey = System.getenv("CURSEFORGE_API_KEY")
-        project {
-            id = 'artificial-connector'
-            changelogType = 'markdown'
-            changelog = file('CHANGELOG.md')
-            releaseType = 'alpha'
-            mainArtifact(tasks.jar)
-            addGameVersion 'Minecraft 1.21.1'
-            addGameVersion 'NeoForge'
-        }
-    }
 }

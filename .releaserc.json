@@ -13,7 +13,7 @@
       "@semantic-release/exec",
       {
         "prepareCmd": "sed -i 's/mod_version=.*/mod_version=${nextRelease.version}/' gradle.properties && ./gradlew build",
-        "publishCmd": "./gradlew curseforge"
+        "publishCmd": "echo 'Publishing is now handled by the mc-publish action.'"
       }
     ],
     [

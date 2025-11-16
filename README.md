@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/hackmnin/ArtificialConnectorMod/main/.github/assets/artificial_connector_logo.png" alt="Artificial Connector Logo" width="256"/>
+  <img src="https://github.com/DomSeFutNe/ArtificialConnectorMod/blob/main/.github/assets/artificial_connector_logo.png" alt="Artificial Connector Logo" width="256"/>
 </p>
 
 # Artificial Connector Mod

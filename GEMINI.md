@@ -17,11 +17,15 @@ This is a Minecraft mod project with the following characteristics:
     *   **Indentation**: 2 spaces.
     *   **Line Length**: 100 characters maximum.
     *   **Naming**: `camelCase` for methods and variables, `PascalCase` for classes.
+    *   **Check**: Please run `./gradlew check` to verify your changes before committing.
 *   **Core APIs**:
     *   Registrations are handled using NeoForge's `DeferredRegister` system.
     *   The mod's event bus (`IEventBus`) is used to register game objects.
 *   **File Paths**: Always use full, absolute paths for file names in your responses.
 *   **Comments**: All comments and documentations are always in english.
+*   **Commit Messages:** Commits must follow the Conventional Commits specification. A `commitlint` hook is in place to enforce this.
+    *   **Commit Message Line Length:** Body lines must not exceed 100 characters.
+*   **Branching:** All development should happen on branches prefixed with `dev/` (e.g., `dev/new-feature`).
 </CONTEXT>
 
 <OUTPUT_INSTRUCTION>

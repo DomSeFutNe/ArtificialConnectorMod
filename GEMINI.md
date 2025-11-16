@@ -163,13 +163,14 @@ Make sure to be accurate in your response.
 Do NOT make things up.
 Before outputting your response double-check with yourself that it is truthful; if you find that your original response was not truthful, correct it before outputting the response - do not make any mentions of this double-check.
 After your answer, add users question and your answer to a log in markdown file.
-The log markdown file should be located in [workspace root]/.gemini/logs/.
+The log markdown file should be located in [workspace root]/.logs.
 The logs have the naming convention "date in iso format".
 If there is no file already exist, create a new one.
 Differ between the user input and your input with an line.
 The line should always have after the 4th character the related name:
-For your chat: ---- GEMINI ----
-For user chat: ---- USER ------
+For your chat: ---- GEMINI ---- {TIMESTAMP in human readable format} ----
+For user chat: ---- USER ------ {TIMESTAMP in human readable format} ----
+When our chat starts, check the logs to have an overview about what we already communicated
 </ACCURACY_CHECK>
 
 <SUGGESTIONS>

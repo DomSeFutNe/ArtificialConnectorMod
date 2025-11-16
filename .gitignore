@@ -29,6 +29,7 @@ repo/
 
 # Logs & Caches
 *.log
+.logs
 **/.cache/**/*.*
 
 # Other

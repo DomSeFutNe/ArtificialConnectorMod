@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "artificialconnector:block/connector_block_bottom",
+    "east": "artificialconnector:block/connector_block_side",
+    "north": "artificialconnector:block/connector_block_front_failed",
+    "particle": "artificialconnector:block/connector_block_front_failed",
+    "south": "artificialconnector:block/connector_block_side",
+    "up": "artificialconnector:block/connector_block_top",
+    "west": "artificialconnector:block/connector_block_side"
+  }
+}

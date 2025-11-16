@@ -44,10 +44,19 @@ public class ModBlockStateProvider extends BlockStateProvider {
             ConnectorStatus status = state.getValue(ModBlockStateProperties.CONNECTOR_STATUS);
             String modelName = "block/connector_block_" + status.getSerializedName();
 
-            // For now, all states will use the 'idle' texture as a placeholder.
-            // We just need to create the model files.
-            ResourceLocation texture = modLoc("block/connector_block_idle");
-            var model = models().cubeAll(modelName, texture);
+            // Define textures for each side. The front will change based on status.
+            ResourceLocation topTexture = modLoc("block/connector_block_top");
+            ResourceLocation bottomTexture = modLoc("block/connector_block_bottom");
+            ResourceLocation sideTexture = modLoc("block/connector_block_side");
+
+            // Use a specific, animated texture for the 'processing' state.
+            ResourceLocation frontTexture = (status == ConnectorStatus.PROCESSING)
+                    ? modLoc("block/connector_block_front_processing_0")
+                    : modLoc("block/connector_block_front_" + status.getSerializedName());
+
+            // Use the standard 'cube' model which allows for different textures per side.
+            var model = models().cube(modelName, bottomTexture, topTexture, frontTexture,
+                    sideTexture, sideTexture, sideTexture).texture("particle", frontTexture);
 
             return ConfiguredModel.builder().modelFile(model).build();
         });

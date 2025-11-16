@@ -1,4 +1,4 @@
-CURRENT_BRANCH=dev/code-structure
+CURRENT_BRANCH=dev/fix-ci-errors
 VALID_BRANCH_REGEX="^(dev)\/.*$"
 ALLOWED_PUSH_BRANCHES="^(main|master)$"
 

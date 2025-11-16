@@ -50,6 +50,7 @@ public class ModLootTableProvider extends LootTableProvider {
             this.add(ModBlocks.ARTIFICIAL_ORE.get(), createOreDrop(ModBlocks.ARTIFICIAL_ORE.get(),
                     ModItems.RAW_ARTIFICIAL_ORE.get()));
             this.dropSelf(ModBlocks.ARTIFICIAL_BLOCK.get());
+            this.dropSelf(ModBlocks.CONNECTOR_BLOCK.get());
         }
 
         /**

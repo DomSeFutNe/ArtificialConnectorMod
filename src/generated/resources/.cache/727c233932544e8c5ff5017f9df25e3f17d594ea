@@ -1,5 +1,10 @@
-// 1.21.1	2025-11-09T12:22:06.244297522	Block States: artificialconnector
+// 1.21.1	2025-11-16T12:56:10.332771102	Block States: artificialconnector
 20821b9fe4e684e077ba7dcebd67cf3853dcc366 assets/artificialconnector/blockstates/artificial_block.json
 678f9d92c7d2343ba4945f509fee5ef453710085 assets/artificialconnector/blockstates/artificial_ore.json
+54d3a1fe8c4c754ff9ff2357fe27249d73ca9d29 assets/artificialconnector/blockstates/connector_block.json
 e299f542197c1bfa609c9010d58a8c305c0e08d6 assets/artificialconnector/models/block/artificial_block.json
 356f167f916a0ac886db4ce4f652d84aced96f84 assets/artificialconnector/models/block/artificial_ore.json
+14ce5d4ab224112f1126e07136cae506c409bfdd assets/artificialconnector/models/block/connector_block_failed.json
+6b2e93878e3e1532515cd67c17bab0b93a5f25b2 assets/artificialconnector/models/block/connector_block_idle.json
+b9562821bd5b5df1aaae3d0aef5e02d526a2d4d5 assets/artificialconnector/models/block/connector_block_processing.json
+ca9bb5e433afdfe2742b00bb990fc1aa5aa39e83 assets/artificialconnector/models/block/connector_block_success.json

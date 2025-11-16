@@ -1,7 +1,7 @@
 package hackmnin.artificialconnector.data;
 
-import hackmnin.artificialconnector.ArtificialConnectorMod;
 import hackmnin.artificialconnector.ModItems;
+import hackmnin.artificialconnector.ArtificialConnectorMod;
 import hackmnin.artificialconnector.ModBlocks;
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.common.data.LanguageProvider;

@@ -14,7 +14,6 @@ import net.neoforged.neoforge.data.event.GatherDataEvent;
 import net.neoforged.bus.api.SubscribeEvent;
 
 import java.util.concurrent.CompletableFuture;
-
 import hackmnin.artificialconnector.ArtificialConnectorMod;
 
 /**

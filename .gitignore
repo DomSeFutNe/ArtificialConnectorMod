@@ -1,7 +1,3 @@
-# IDE specific files
-## VS Code
-.vscode/
-
 ## IntelliJ
 .idea/
 *.iml

@@ -9,6 +9,11 @@ jobs:
   release:
     name: Release
     runs-on: ubuntu-latest
+    permissions:
+      contents: write # to push new version tag and commit
+      issues: write # to comment on released issues
+      pull-requests: write # to comment on released pull requests
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4

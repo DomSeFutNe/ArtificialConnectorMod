@@ -189,23 +189,18 @@ sourceSets {
 }
 
 // CurseForge Publishing Configuration
-curseforge {
-    apiKey = System.getenv("CURSEFORGE_API_KEY")
-
-    project {
-        id = 'artificial-connector'
-        changelogType = 'markdown'
-        changelog = file('CHANGELOG.md')
-        releaseType = 'alpha'
-
-        // This defines the main file to be uploaded.
-        mainArtifact(tasks.jar)
-
-        // Add required game versions for CurseForge filters
-        addGameVersion 'Minecraft 1.21.1'
-        addGameVersion 'NeoForge'
+// Only configure CurseForge publishing if the API key is present.
+if (System.getenv("CURSEFORGE_API_KEY") != null) {
+    curseforge {
+        apiKey = System.getenv("CURSEFORGE_API_KEY")
+        project {
+            id = 'artificial-connector'
+            changelogType = 'markdown'
+            changelog = file('CHANGELOG.md')
+            releaseType = 'alpha'
+            mainArtifact(tasks.jar)
+            addGameVersion 'Minecraft 1.21.1'
+            addGameVersion 'NeoForge'
+        }
     }
 }
-
-// Disable the curseforge task if the API key is not present.
-tasks.named('curseforge').configure { onlyIf { System.getenv('CURSEFORGE_API_KEY') != null } }

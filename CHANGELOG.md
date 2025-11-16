@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/DomSeFutNe/ArtificialConnectorMod/compare/v1.0.3...v1.0.4) (2025-11-16)
+
+
+### Bug Fixes
+
+* **ci:** Specify artifact path for mc-publish ([#17](https://github.com/DomSeFutNe/ArtificialConnectorMod/issues/17)) ([03dcf59](https://github.com/DomSeFutNe/ArtificialConnectorMod/commit/03dcf59e9273eb20dd516c4729869a645348c506))
+
 ## [1.0.3](https://github.com/DomSeFutNe/ArtificialConnectorMod/compare/v1.0.2...v1.0.3) (2025-11-16)
 
 

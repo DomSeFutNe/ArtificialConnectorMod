@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/DomSeFutNe/ArtificialConnectorMod/compare/v1.0.0...v1.0.1) (2025-11-16)
+
+
+### Bug Fixes
+
+* **ci:** Use Project ID for CurseForge Publishing ([#9](https://github.com/DomSeFutNe/ArtificialConnectorMod/issues/9)) ([e739d1f](https://github.com/DomSeFutNe/ArtificialConnectorMod/commit/e739d1f3dba0529ac10645ced5a0f45743c44be7))
+
 # 1.0.0 (2025-11-16)
 
 

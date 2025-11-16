@@ -40,7 +40,7 @@ jobs:
 
       - name: Run semantic-release to build and create GitHub release
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         run: semantic-release
 
       - name: Publish to CurseForge using mc-publish

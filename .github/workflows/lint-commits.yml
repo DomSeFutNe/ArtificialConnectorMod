@@ -16,7 +16,7 @@ jobs:
     steps:
       # This step checks out the code (the commits) of the pull request
       - name: Checkout PR code
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0 # Fetches all history for linting
 

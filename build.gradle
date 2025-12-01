@@ -3,7 +3,7 @@ plugins {
     id 'maven-publish'
     id 'net.neoforged.gradle.userdev' version '7.1.1'
     id 'checkstyle'
-    id 'com.github.spotbugs' version '6.4.5'
+    id 'com.github.spotbugs' version '6.4.7'
 }
 
 tasks.named('wrapper', Wrapper).configure {

@@ -6,11 +6,9 @@ import hackmnin.artificialconnector.block.properties.ConnectorStatus;
 import hackmnin.artificialconnector.block.properties.ModBlockStateProperties;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
-import net.neoforged.neoforge.registries.DeferredHolder;
 
 /**
  * Generates BlockState and Block Model JSONs.
@@ -18,7 +16,7 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 public class ModBlockStateProvider extends BlockStateProvider {
 
     public ModBlockStateProvider(PackOutput output, ExistingFileHelper exFileHelper) {
-        super(output, ArtificialConnectorMod.MODID, exFileHelper);
+        super(output, ArtificialConnectorMod.MOD_ID, exFileHelper);
     }
 
     /**

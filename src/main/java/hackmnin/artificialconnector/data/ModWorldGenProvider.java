@@ -69,7 +69,7 @@ public class ModWorldGenProvider extends DatapackBuiltinEntriesProvider {
          */
         public ModWorldGenProvider(PackOutput output,
                         CompletableFuture<HolderLookup.Provider> registries) {
-                super(output, registries, BUILDER, Set.of(ArtificialConnectorMod.MODID));
+                super(output, registries, BUILDER, Set.of(ArtificialConnectorMod.MOD_ID));
         }
 
         // --- 1. Configured Features (The "What") ---
@@ -207,18 +207,18 @@ public class ModWorldGenProvider extends DatapackBuiltinEntriesProvider {
         // Helper to create a ResourceKey for ConfiguredFeatures
         private static ResourceKey<ConfiguredFeature<?, ?>> registerKey(String name) {
                 return ResourceKey.create(Registries.CONFIGURED_FEATURE, ResourceLocation
-                                .fromNamespaceAndPath(ArtificialConnectorMod.MODID, name));
+                                .fromNamespaceAndPath(ArtificialConnectorMod.MOD_ID, name));
         }
 
         // Helper to create a ResourceKey for PlacedFeatures
         private static ResourceKey<PlacedFeature> registerPlacedKey(String name) {
                 return ResourceKey.create(Registries.PLACED_FEATURE, ResourceLocation
-                                .fromNamespaceAndPath(ArtificialConnectorMod.MODID, name));
+                                .fromNamespaceAndPath(ArtificialConnectorMod.MOD_ID, name));
         }
 
         // Helper to create a ResourceKey for BiomeModifiers
         private static ResourceKey<BiomeModifier> registerBiomeModifierKey(String name) {
                 return ResourceKey.create(NeoForgeRegistries.Keys.BIOME_MODIFIERS, ResourceLocation
-                                .fromNamespaceAndPath(ArtificialConnectorMod.MODID, name));
+                                .fromNamespaceAndPath(ArtificialConnectorMod.MOD_ID, name));
         }
 }

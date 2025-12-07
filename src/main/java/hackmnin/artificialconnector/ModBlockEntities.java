@@ -13,12 +13,14 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 public class ModBlockEntities {
 
   public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES =
-      DeferredRegister.create(Registries.BLOCK_ENTITY_TYPE, ArtificialConnectorMod.MODID);
+      DeferredRegister.create(Registries.BLOCK_ENTITY_TYPE, ArtificialConnectorMod.MOD_ID);
 
-  public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ConnectorBlockEntity>>
-      CONNECTOR_BLOCK_ENTITY = BLOCK_ENTITIES.register("connector_block_entity",
-          () -> BlockEntityType.Builder
-              .of(ConnectorBlockEntity::new, ModBlocks.CONNECTOR_BLOCK.get()).build(null));
+  @SuppressWarnings(
+      value = "NP_NULL_PARAM_DEREF"
+  )
+  public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ConnectorBlockEntity>> CONNECTOR_BLOCK_ENTITY =
+      BLOCK_ENTITIES.register("connector_block_entity", () -> BlockEntityType.Builder
+          .of(ConnectorBlockEntity::new, ModBlocks.CONNECTOR_BLOCK.get()).build(null));
 
   /**
    * This method registers all block entities to the event bus.

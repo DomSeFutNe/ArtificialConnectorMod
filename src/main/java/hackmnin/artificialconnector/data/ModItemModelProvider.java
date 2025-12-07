@@ -20,7 +20,7 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 public class ModItemModelProvider extends ItemModelProvider {
 
     public ModItemModelProvider(PackOutput output, ExistingFileHelper existingFileHelper) {
-        super(output, ArtificialConnectorMod.MODID, existingFileHelper);
+        super(output, ArtificialConnectorMod.MOD_ID, existingFileHelper);
     }
 
     /**
@@ -48,7 +48,7 @@ public class ModItemModelProvider extends ItemModelProvider {
     private ItemModelBuilder simpleItem(DeferredHolder<Item, Item> item) {
         String name = item.getId().getPath();
         return withExistingParent(name, "item/generated").texture("layer0", ResourceLocation
-                .fromNamespaceAndPath(ArtificialConnectorMod.MODID, "item/" + name));
+                .fromNamespaceAndPath(ArtificialConnectorMod.MOD_ID, "item/" + name));
     }
 
     /**
@@ -63,7 +63,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         // FIX: We must use 'parent()' with an 'UncheckedModelFile'
         // 'withExistingParent()' fails because the block model hasn't been generated yet.
         // This new code creates the link without validating it, solving the crash.
-        return parent(name, ResourceLocation.fromNamespaceAndPath(ArtificialConnectorMod.MODID,
+        return parent(name, ResourceLocation.fromNamespaceAndPath(ArtificialConnectorMod.MOD_ID,
                 "block/" + name));
     }
 

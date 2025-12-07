@@ -12,7 +12,7 @@ import net.neoforged.neoforge.common.data.LanguageProvider;
 public class ModLangProvider extends LanguageProvider {
 
     public ModLangProvider(PackOutput output, String locale) {
-        super(output, ArtificialConnectorMod.MODID, locale);
+        super(output, ArtificialConnectorMod.MOD_ID, locale);
     }
 
     /**
